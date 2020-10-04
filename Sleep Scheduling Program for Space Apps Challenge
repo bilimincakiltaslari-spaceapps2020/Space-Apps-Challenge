@@ -1,0 +1,172 @@
+name=input("Name: ")
+age=int(input("Age: "))
+gender =input("Gender: ")
+timezone =int(input("Timezone: GMT "))
+mission_duration = int(input("Mission duration: "))
+bedtime = int(input("Bedtime by your homelands' timezone (pm):" ))
+numberadder1 = int(input("Sequential increase: "))
+bedtime = bedtime +12
+gmt_bedtime = bedtime - timezone
+
+if gmt_bedtime >= 24:
+    gmt_bedtime=gmt_bedtime - 24
+
+iss_bedtime = 22
+day_times = list()
+gmt1_bedtime_count = gmt_bedtime
+gmt1_bedtime = gmt_bedtime
+i = numberadder1
+icount = numberadder1
+while True:
+    a = 0
+    acount = 0
+    daynegative = 0
+    for q in range(mission_duration):
+        acount = acount +1
+        gmt1_bedtime_count = gmt1_bedtime_count + numberadder1
+        icount=icount+numberadder1
+        if (iss_bedtime <= gmt1_bedtime_count):
+            daynegative = (daynegative * (-1))
+            break 
+        else:
+            daynegative = (daynegative + 1)
+            continue 
+    for j in range(mission_duration):
+        times = dict()
+        times["day"]=daynegative+a-1
+        times["wake_time"]=gmt_bedtime+i-(16+numberadder1)
+        if times["wake_time"] >= 24: 
+            times["wake_time"] -= 24
+        elif times["wake_time"] < 0:
+            times["wake_time"] += 24
+        times["morning_routine"]=gmt_bedtime+i-(16+numberadder1)
+        if times["morning_routine"] >= 24: 
+            times["morning_routine"] -= 24
+        elif times["morning_routine"] < 0: 
+            times["morning_routine"] += 24
+        times["breakfast"]=gmt_bedtime+i-(15+numberadder1)
+        if times["breakfast"] >= 24: 
+            times["breakfast"] -= 24
+        elif times["breakfast"] < 0: 
+            times["breakfast"] += 24
+        times["break1"]=gmt_bedtime+i-(14+numberadder1)
+        if times["break1"] >= 24: 
+            times["break1"] -= 24
+        elif times["break1"] < 0: 
+            times["break1"] += 24
+        times["exercise"]=gmt_bedtime+i-(13+numberadder1)
+        if times["exercise"] >= 24: 
+            times["exercise"] -= 24
+        elif times["exercise"] < 0: 
+            times["exercise"] += 24
+        times["work1"]=gmt_bedtime+i-(11+numberadder1)
+        if times["work1"] >= 24: 
+            times["work1"] -= 24
+        elif times["work1"] < 0: 
+            times["work1"] += 24
+        times["lunch"]=gmt_bedtime+i-(9+numberadder1)
+        if times["lunch"] >= 24: 
+            times["lunch"] -= 24
+        elif times["lunch"] < 0: 
+            times["lunch"] += 24
+        times["work2"]=gmt_bedtime+i-(8+numberadder1)
+        if times["work2"] >= 24: 
+            times["work2"] -= 24
+        elif times["work2"] < 0: 
+            times["work2"] += 24
+        times["dinner"]=gmt_bedtime+i-(3+numberadder1)
+        if times["dinner"] >= 24: 
+            times["dinner"] -= 24
+        elif times["dinner"] < 0: 
+            times["dinner"] += 24
+        times["break2"]=gmt_bedtime+i-(2+numberadder1)
+        if times["break2"] >= 24: 
+            times["break2"] -= 24
+        elif times["break2"] < 0: 
+            times["break2"] += 24
+        times["bed_time"]=gmt_bedtime+i-numberadder1
+        if times["bed_time"] >= 24: 
+            times["bed_time"] -= 24
+        elif times["bed_time"] < 0: 
+            times["bed_time"] += 24
+        day_times.append(times)
+        a = a +1
+        gmt1_bedtime = gmt1_bedtime + numberadder1
+        i=i+numberadder1
+        if (iss_bedtime <= gmt1_bedtime):
+            break 
+        else:
+            continue 
+    day=0
+    for k in range(a,mission_duration):
+        day = day + 1
+        times = dict()
+        times["day"]=day
+        times["wake_time"]=iss_bedtime-16
+        if times["wake_time"] >= 24: 
+            times["wake_time"] -= 24
+        elif times["wake_time"] < 0:
+            times["wake_time"] += 24
+        times["morning_routine"]=iss_bedtime-16
+        if times["morning_routine"] >= 24: 
+            times["morning_routine"] -= 24
+        elif times["morning_routine"] < 0: 
+            times["morning_routine"] += 24
+        times["breakfast"]=iss_bedtime-15
+        if times["breakfast"] >= 24: 
+            times["breakfast"] -= 24
+        elif times["breakfast"] < 0: 
+            times["breakfast"] += 24
+        times["break1"]=iss_bedtime-14
+        if times["break1"] >= 24: 
+            times["break1"] -= 24
+        elif times["break1"] < 0: 
+            times["break1"] += 24
+        times["exercise"]=iss_bedtime-13
+        if times["exercise"] >= 24: 
+            times["exercise"] -= 24
+        elif times["exercise"] < 0: 
+            times["exercise"] += 24
+        times["work1"]=iss_bedtime-11
+        if times["work1"] >= 24: 
+            times["work1"] -= 24
+        elif times["work1"] < 0: 
+            times["work1"] += 24
+        times["lunch"]=iss_bedtime-9
+        if times["lunch"] >= 24: 
+            times["lunch"] -= 24
+        elif times["lunch"] < 0: 
+            times["lunch"] += 24
+        times["work2"]=iss_bedtime-8
+        if times["work2"] >= 24: 
+            times["work2"] -= 24
+        elif times["work2"] < 0: 
+            times["work2"] += 24
+        times["dinner"]=iss_bedtime-3
+        if times["dinner"] >= 24: 
+            times["dinner"] -= 24
+        elif times["dinner"] < 0: 
+            times["dinner"] += 24
+        times["break2"]=iss_bedtime-2
+        if times["break2"] >= 24: 
+            times["break2"] -= 24
+        elif times["break2"] < 0: 
+            times["break2"] += 24
+        times["bed_time"]=iss_bedtime
+        if times["bed_time"] >= 24: 
+            times["bed_time"] -= 24
+        elif times["bed_time"] < 0: 
+            times["bed_time"] += 24
+        day_times.append(times)
+    break
+
+import csv
+
+with open('spaceapps.csv', mode='w') as spaceapps_file:
+    spaceapps_writer = csv.writer(spaceapps_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    spaceapps_writer.writerow(['day', 'wake_time', 'morning_routine','breakfast','break1','exercise','work1','lunch','work2','dinner','break2','bed_time'])
+    for day_time in day_times:
+        spaceapps_writer.writerow([day_time["day"], day_time["wake_time"],day_time["morning_routine"],day_time["breakfast"],day_time["break1"],day_time["exercise"],day_time["work1"],day_time["lunch"],day_time["work2"],day_time["dinner"],day_time["break2"],day_time["bed_time"]])
+    spaceapps_writer.writerow(["Name: ", name])
+    spaceapps_writer.writerow(["Age: ", age])
+    spaceapps_writer.writerow(["Gender: ", gender])
